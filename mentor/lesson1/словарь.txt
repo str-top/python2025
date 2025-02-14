@@ -1,0 +1,23 @@
+mentor
+creation
+github.com
+repository
+fork
+create fork
+code
+issues
+pull request
+discussions
+create pull request
+merge
+commit
+commit changes
+commit message
+extended discription
+propose changes
+comment
+maintainer
+auther
+contributer
+markdown
+conversation
