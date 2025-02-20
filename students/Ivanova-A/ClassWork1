@@ -1,0 +1,18 @@
+classwork
+# operciya = input('введите операцию: "*", "/", "%"')
+# chisl_1 = int(input('Введите число 1'))
+# chisl_2 = int(input('Введите число 2'))
+# if operciya == '*':
+#     resul = chisl_1*chisl_2
+#     print(resul)
+# if operciya == '/':
+#     resul = chisl_1/chisl_2
+#     print(resul)
+# if operciya == '%':
+#     resul = chisl_1%chisl_2
+#     print(resul) 
+
+
+x =[4,7,3,5,6]
+x = set(x)
+print(x)
