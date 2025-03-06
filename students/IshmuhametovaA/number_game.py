@@ -8,7 +8,7 @@ def guess_the_number():
     print("Я загадал число от 1 до 100. Попробуй угадать его!")
 
     while True:
-        guess = int(input("Введите ваше предположение: "))
+        guess = int(input("Введите ваше число: "))
         attempts += 1
       
         if guess < secret_number:
