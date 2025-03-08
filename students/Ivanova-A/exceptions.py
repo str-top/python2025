@@ -7,8 +7,12 @@ print(sdfeas.replace(" ", "-"))
 aaa= 'Высыпать, Головомойка, Жердь, Инородный, Козел, Наерундить, Переулок, Повседневность, Почтенный, Фрамуга'
 print(aaa.split(" "))
 ##task 3
-as= 'Я буду хорошо учиться для того, чтобы попасть в хороший институт.'
-if as.startwith(" Я") and as.endwith("."):
-print(as)
-else:
-
+sentence = "z хочу спать"
+if not sentence[0].isupper():
+        sentence = sentence[0].upper() + sentence[1:]
+    
+    # Проверяем, что в конце предложения стоит знак препинания
+if not sentence[-1] in ['.', '!', '?']:
+        sentence += '.'
+print(sentence)
+    
