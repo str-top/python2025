@@ -1,0 +1,34 @@
+def process_list(data):
+    try:
+        if not isinstance(data, list):
+            raise TypeError("Входные данные должны быть списком.")
+        for i in range(len(data)):
+            try:
+                if i > 0:
+                    numerator = data[i]
+                    denominator = data[i - 1]
+                    if not isinstance(numerator, (int, float)):
+                        raise TypeError(f"Некорректный тип данных: {type(numerator)} в индексе {i}. Ожидается число.")
+                    if not isinstance(denominator, (int, float)):
+                        raise TypeError(f"Некорректный тип данных: {type(denominator)} в индексе {i-1}. Ожидается число.")
+                    result = numerator / denominator
+                    print(f"{numerator} / {denominator} = {result}")
+            except ZeroDivisionError:
+                print(f"Ошибка: деление на ноль в индексе {i}.")
+            except TypeError as e:
+                print(f"Ошибка типа данных: {e}")
+            except IndexError:
+                print(f"Ошибка: выход за границы списка в индексе {i}.")
+    except TypeError as e:
+        print(f"Общая ошибка типа данных: {e}")
+    except Exception as e:
+        print(f"Неожиданная ошибка: {e}")
+    finally:
+        print("Обработка списка завершена.")
+my_list = [10, 5, 0, "abc", 3, 100]
+process_list(my_list)
+print("\nДругой пример:")
+my_list2 = [20, 2, 5, 10]
+process_list(my_list2)
+print("\nПример со строкой:")
+process_list("не список")
