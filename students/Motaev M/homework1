@@ -1,0 +1,21 @@
+def process_list(data):
+
+    try:
+        for i in range(len(data)):
+            try:
+                if i > 0:
+                    result = data[i] / data[i - 1]
+                    print(f"Элемент {data[i]} / Элемент {data[i-1]} = {result}")
+                else:
+                    print(f"Первый элемент: {data[i]}. Деление не выполняется.")
+            except ZeroDivisionError:
+                print(f"Ошибка: Деление на ноль при обработке элемента {data[i]}.")
+            except TypeError:
+                print(f"Ошибка: Неподдерживаемый тип данных при обработке элемента {data[i]}.")
+            except Exception as e:
+                print(f"Произошла неожиданная ошибка при обработке элемента {data[i]}: {e}")
+    except IndexError:
+        print("Ошибка: Выход за границы списка.")
+    finally:
+        print("Завершение обработки списка.")
+
