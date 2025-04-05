@@ -1,0 +1,15 @@
+def calculate_discount(price, discount=10):
+    """
+    Вычисляет итоговую стоимость товара с учетом скидки.
+
+    :param price: исходная цена товара (позиционный аргумент)
+    :param discount: процент скидки (именованный аргумент, по умолчанию 10)
+    :return: итоговая цена после применения скидки
+    """
+    if discount < 0 or discount > 100:
+        raise ValueError("Скидка должна быть в диапазоне от 0 до 100%")
+    return price * (100 - discount) / 100 if discount != 100 else 0
+
+print(calculate_discount(1000))       # 900.0 (скидка 10%)
+print(calculate_discount(1000, 20))  # 800.0 (скидка 20%)
+print(calculate_discount(1000, 100)) # 0 (скидка 100%)
