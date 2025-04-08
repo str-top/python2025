@@ -1,0 +1,45 @@
+import pandas as pd
+
+# Sample data
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+    'Grade': [92, 85, 97, 78, 88]
+}
+
+df = pd.DataFrame(data)
+
+# Get top 3 students by grade
+top_students = df.sort_values('Grade', ascending=False).head(3)
+print(top_students)
+
+
+      Name  Grade
+2  Charlie     97
+0    Alice     92
+4      Eva     88
+
+
+
+SELECT name, grade
+FROM students
+ORDER BY grade DESC
+LIMIT 3;  -- Top 3 students
+
+
+
+top_students = df[df['Grade'] >= 90].sort_values('Grade', ascending=False)
+
+
+students = [
+    {"name": "Alice", "grade": 92},
+    {"name": "Bob", "grade": 85},
+    {"name": "Charlie", "grade": 97}
+]
+
+# Sort and get top 2
+top_students = sorted(students, key=lambda x: x['grade'], reverse=True)[:2]
+print(top_students)
+
+
+
+[{'name': 'Charlie', 'grade': 97}, {'name': 'Alice', 'grade': 92}]
