@@ -7,7 +7,7 @@ class Shape (ABC):
   def perimeter(self):
     pass
   def info(self):
-    pass
+    print(f"{self.__class__.__name__}: Area = {self.area()}, Perimeter = {self.perimeter()}")
  
 class Rectangle(Shape):
   def __init__(self, width, height):
