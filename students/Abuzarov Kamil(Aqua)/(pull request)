@@ -1,0 +1,32 @@
+abstract class Employee {
+protected  String name;
+protected Integer ID, salary;
+
+public void setSalary(int salary) {
+    this.salary = salary;
+}
+protected void work(){
+        }
+    }
+     class Manager extends Employee {
+private Long time;
+private BigInteger projectMoney;
+private Byte countOfPaper;
+
+ public void throwPaper(){
+ }
+    class Programmer extends Employee {
+        private String task;
+        private Integer stamina;
+        private String code;
+        public void coding(String task){
+      Employee coding = new Programmer();
+    }
+    public void test(String code){
+     Programmer test = new Programmer();
+    }
+    public void Fix(String code){
+       Programmer test = new Programmer();
+    }
+  }
+}
