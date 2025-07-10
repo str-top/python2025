@@ -1,0 +1,44 @@
+<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+	<StackPanel Orientation="Horizontal">
+		<TextBox Name="Num1TextBox" Margin="5" Width="50"/>
+		<TextBlock Text="+" Margin="5" FontWeight="Bold"/>
+		<TextBox Name="Num2TextBox" Margin="5" Width="50"/>
+	</StackPanel>
+	<TextBlock Text="0" Name="ResultTextBlock" TextAlignment="Center" Margin="5"/>
+	<Button Content="Посчитать" Name="CalculateButton" Click="CalculateButton_Click" Margin="5"/>
+</StackPanel>
+
+private void CalculateButton_Click(object sender, RoutedEventArgs e) //Метод, который вызывается при нажатии на кнопку "Посчитать"
+{
+	//Валидация полученных данных
+
+	string text1 = Num1TextBox.Text.Trim();
+	string text2 = Num2TextBox.Text.Trim();
+
+	int num1 = 0;
+	int num2 = 0;
+
+	if (!string.IsNullOrEmpty(text1) && !string.IsNullOrEmpty(text2))
+	{
+		try
+		{
+			num1 = Convert.ToInt32(text1);
+			num2 = Convert.ToInt32(text2);
+		}
+		catch (Exception exc) { }
+
+		Calculate(num1, num2); //Передача данных модели
+	}
+}
+
+public void Calculate(int num1, int num2)
+{
+	result = num1 + num2; //Проведение операций с полученными данными
+
+	UpdateView(); //Вызов обновления представления
+}
+
+public void UpdateView()
+{
+	ResultTextBlock.Text = result.ToString(); //Изменение вида
+}
