@@ -1,0 +1,63 @@
+UPDATE books SET price = price * 1.15;
+
+UPDATE readers SET phone = '89998887766' WHERE reader_id = 3;
+
+ALTER TABLE books ADD genre VARCHAR(30);
+UPDATE books SET genre = CASE 
+    WHEN title = 'Война и мир' THEN 'Роман'
+    WHEN title = 'Преступление и наказание' THEN 'Детектив'
+    WHEN title = 'Мастер и Маргарита' THEN 'Мистика'
+END;
+
+
+CREATE TABLE publishers (
+    publisher_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    phone VARCHAR(20)
+);
+INSERT INTO publishers (name, phone) VALUES
+('Издательство "Наука"', '89997778899'),
+('Издательство "Классика"', '89996665544');
+
+ALTER TABLE books ADD publisher_id INT;
+ALTER TABLE books ADD FOREIGN KEY (publisher_id) REFERENCES publishers(publisher_id);
+UPDATE books SET publisher_id = 1 WHERE book_id IN (1, 2);
+UPDATE books SET publisher_id = 2 WHERE book_id = 3;
+
+-- Удаление издателей
+TRUNCATE TABLE publishers;
+DROP TABLE publishers;
+
+-- Список выдач с читателями и сотрудниками
+SELECT b.borrowing_id, r.name AS reader_name, s.name AS staff_name, b.borrow_date
+FROM borrowings b
+JOIN readers r ON b.reader_id = r.reader_id
+JOIN staff s ON b.staff_id = s.staff_id;
+
+-- Книги и количество выдач
+SELECT bk.title, SUM(bi.quantity) AS total_borrowed
+FROM books bk
+JOIN borrowing_items bi ON bk.book_id = bi.book_id
+GROUP BY bk.title;
+
+-- Список выдач с читателями и сотрудниками
+SELECT b.borrowing_id, r.name AS reader_name, s.name AS staff_name, b.borrow_date
+FROM borrowings b
+JOIN readers r ON b.reader_id = r.reader_id
+JOIN staff s ON b.staff_id = s.staff_id;
+
+-- Книги и количество выдач
+SELECT bk.title, SUM(bi.quantity) AS total_borrowed
+FROM books bk
+JOIN borrowing_items bi ON bk.book_id = bi.book_id
+GROUP BY bk.title;
+
+
+-- Удаление старых выдач
+DELETE FROM borrowings WHERE borrow_date < CURDATE();
+
+-- Удаление читателей без выдач
+DELETE FROM readers 
+WHERE reader_id NOT IN (SELECT DISTINCT reader_id FROM borrowings);
+
+
