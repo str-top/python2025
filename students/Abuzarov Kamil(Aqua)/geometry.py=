@@ -1,0 +1,12 @@
+uses crt;
+var r,p,s:real;
+begin
+clrscr;
+write('Радиус=');
+readln(r);
+p:=17*2*r*sin(pi/17);
+s:=r*r*17*sin(2*pi/17)/2;
+writeln('Периметр=',p:0:2);
+write('Площадь=',s:0:2);
+readln
+end.
