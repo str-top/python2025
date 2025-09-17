@@ -1,0 +1,29 @@
+describe('работа с десятичными числами', () => {
+  describe('сложение', () => {
+    test.each`
+      expr | expected
+      ${'1 + 1'} | ${'2'}
+      ${'1 + 2'} | ${'3'}
+      ${'4 + 3'} | ${'7'}
+      ${'10 + 10'} | ${'20'}
+    `('результат $expr должен быть равен $expected', ({expr, expected}) => {
+      expect(calculator(expr)).toBe(expected)
+    });
+  });
+  describe('вычитание', () => {
+    test.each`
+      expr | expected
+      ${'10 - 1'} | ${'9'}
+      ${'5 - 4'} | ${'1'}
+      ${'4 - 4'} | ${'0'}
+      ${'1 - 10'} | ${'-9'}
+      ${'4 - 5'} | ${'-1'}
+    `('результат $expr должен быть равен $expected', ({expr, expected}) => {
+      expect(calculator(expr)).toBe(expected)
+    });
+  });
+});
+
+describe('работа с римскими числами', () => {
+  //...
+});
